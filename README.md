@@ -2,6 +2,8 @@
 
 https://www.ultimatetennisstatistics.com
 
+https://github.com/JeffSackmann/tennis_atp
+
 
 All columns:
 - `tourney_id`: Tournament ID 
@@ -50,3 +52,24 @@ All columns:
 - `l_bpSaved`: 
 - `l_bpFaced`: 
 - `winner_rank`: rank after winning
+
+
+Data that we have before the match:
+- `tourney_id`: Tournament ID 
+- `tourney_name`: Tournament NAME
+- `surface`: On which surface players played.
+- `draw_size`: Initial first round of pairing of entrants
+- `tourney_level`: 
+- `tourney_date`: date
+- `match_num`: 
+- PLAYER 1 DATA
+- PLAYER 2 DATA
+- Weather (?)
+
+Winning factors:
+- Surface
+- Elo?
+- 
+
+To Do:
+- 
