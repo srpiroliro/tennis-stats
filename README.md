@@ -1,11 +1,33 @@
 # Tennis Stats
 
+## Probability contributors:
+- Surface (within a range, 10yrs ago != today)
+- Elo
+- *??? Dominant hand ???*
+- Previous results with the current opponent.
+- Results of last X matches (mental state, ++ loses = ++bad mood | -- loses = --bad mood)
+  - >> Maybe after Y loses motivation to win kicks in or opponent gets cocky
+  - >> Maybe after Z wins, player gets cocky and looses
+  - Get avarage streak of wins & loses.
+
+
+## To Do:
+- Do we calculate the probability of winning set by set, thus getting the match result, or directly the match result?
+
+
+## Useful links:
 https://www.ultimatetennisstatistics.com
 
 https://github.com/JeffSackmann/tennis_atp
 
 
-All columns:
+
+- - -
+
+
+## Data
+
+### Data columns:
 - `tourney_id`: Tournament ID 
 - `tourney_name`: Tournament NAME
 - `surface`: On which surface players played.
@@ -54,7 +76,7 @@ All columns:
 - `winner_rank`: rank after winning
 
 
-Data that we have before the match:
+### Data that we have before the match:
 - `tourney_id`: Tournament ID 
 - `tourney_name`: Tournament NAME
 - `surface`: On which surface players played.
@@ -65,18 +87,3 @@ Data that we have before the match:
 - PLAYER 1 DATA
 - PLAYER 2 DATA
 - Weather (?)
-
-Probability contributors:
-- Surface (within a range, 10yrs ago != today)
-- Elo
-- *??? Dominant hand ???*
-- Previous results with the current opponent.
-- Results of last X matches (mental state, ++ loses = ++bad mood | -- loses = --bad mood)
-  - >> Maybe after Y loses motivation to win kicks in or opponent gets cocky
-  - >> Maybe after Z wins, player gets cocky and looses
-  - Get avarage streak of wins & loses.
-
-
-To Do:
-- Do we calculate the probability of winning set by set, thus getting the match result, or directly the match result?
-- 
