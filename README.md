@@ -12,14 +12,17 @@
 
 
 ## To Do:
-- Do we calculate the probability of winning set by set, thus getting the match result, or directly the match result?
+- Do we calculate the probability of winning set by set, thus getting the match result, or directly the match outcome?
+- What is a statistial hypothesis?
+- How to test hypothesis?
+- Create a hypothesis on our project
+- Test it
 
 
 ## Useful links:
 https://www.ultimatetennisstatistics.com
 
 https://github.com/JeffSackmann/tennis_atp
-
 
 
 - - -
@@ -73,7 +76,10 @@ https://github.com/JeffSackmann/tennis_atp
 - `l_SvGms`: 
 - `l_bpSaved`: 
 - `l_bpFaced`: 
-- `winner_rank`: rank after winning
+- `winner_rank`:
+- `winner_rank_points`:
+- `loser_rank`:
+- `loser_rank_points`:
 
 
 ### Data that we have before the match:
