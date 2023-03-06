@@ -12,12 +12,12 @@
 
 
 ## To Do:
-- Test/Check if probability contributors matter/take effect
-- Do we calculate the probability of winning set by set, thus getting the match result, or directly the match outcome?
-- What is a statistial hypothesis?
-- How to test hypothesis?
-- Create a hypothesis on our project
-- Test it
+- [ ] Test/Check if probability contributors matter/take effect
+- [ ] Do we calculate the probability of winning set by set, thus getting the match result, or directly the match outcome?
+- [ ] What is a statistial hypothesis?
+- [ ] How to test hypothesis?
+- [ ] Create a hypothesis on our project
+- [ ] Test it
 
 
 ## Useful links:
