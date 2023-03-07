@@ -2,18 +2,14 @@ list_csv_files<-list.files(path="stats/", pattern = "*.csv")
 all_data<-do.call(rbind, lapply(list_csv_files, function(x) read.csv(paste("stats/",x, sep=""),stringsAsFactors = FALSE)))
 
 
-
 # another dataframe for players
 formatted_data<-data.frame(matrix(ncol=17,nrow=0))
-
 colnames(formatted_data)<-c(
     "player",
     "player_rank",
     "h2h", # % wins with opponent
-
     "previous_surface_result",
     "surface_streak",
-
     "previous_result",
     "streak",
 
@@ -22,21 +18,15 @@ colnames(formatted_data)<-c(
     "opponent_rank",
     "o_previous_surface_result",
     "o_surface_streak",
-
     "o_previous_result",
     "o_streak",
 
     # match stats
-    # START identificators
     "t_id",
     "match_num",
-    # END
-
     "result", # win/loss of player
     "t_date"
-    
-    # "minutes",
-    # "score"
+
 )
 
 players_data<-data.frame(matrix(ncol=6,nrow=0))
@@ -50,7 +40,6 @@ colnames(players_data)<-c(
 
 matches_data<-data.frame(matrix(ncol=8,nrow=0))
 colnames(matches_data)<-c(
-    # identificators
     "t_id",
     "match_num",
     "t_name",
@@ -58,7 +47,9 @@ colnames(matches_data)<-c(
     "t_level",
     "surface",
     "best_of", # longer the match = more stamina needed (younger = better stamina)
-    "round"
+    "round",
+    # "minutes",
+    # "score"
 )
 
 

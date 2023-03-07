@@ -94,3 +94,18 @@ https://github.com/JeffSackmann/tennis_atp
 - PLAYER 1 DATA
 - PLAYER 2 DATA
 - Weather forecast(?)
+
+
+
+### HYPOTHESIS:
+- [ ] The probability of winning a match is influenced by the surface on which the match is played:
+  - clay, grass, hard
+  - If the player is better on a certain surface, he has a higher chance of winning.
+- [ ] The probability of winning a match is influenced by the players height. 
+  - height difference between players
+  - If the player is taller, he has a higher chance of winning.
+- [ ] The probability of winning a match is influenced by the players age and the match duration.
+  - age difference between players
+  - If the player is younger, he has a higher chance of winning on longer matches. (stamina)
+  - EXTRA: If the player is older (more experience), he has a higher chance of winning on shorter matches. (DATA ?)
+- [ ] EXTRA: The probability of winning a match is influenced by the players hand.
