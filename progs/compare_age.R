@@ -13,12 +13,15 @@ to_num<-function(n){
 
 age_diff<-c()
 ht_diff<-c() 
+seed_diff<-c()
 
 w_ages<-c()
 w_hts<-c()
+w_seeds<-c()
 
 l_hts<-c()
 l_ages<-c()
+l_seeds<-c()
 
 wnum_aces<-c()
 
@@ -33,6 +36,15 @@ for(i in 1:nrow(all_data)){
         w_ages<-c(w_ages,w_age)
         l_ages<-c(l_ages,l_age)
         age_diff<-c(age_diff, w_age-l_age)
+    }
+
+    w_seed<-to_num(all_data[i,]$winner_seed)
+    l_seed<-to_num(all_data[i,]$loser_seed)
+
+    if(w_seed>0 & l_seed>0){
+        w_seeds<-c(w_seeds,w_seed)
+        l_seeds<-c(l_seeds,l_seed)
+        seed_diff<-c(seed_diff, w_seed-l_seed)
     }
 
     l_ht<-to_num(all_data[i,]$loser_ht)
@@ -258,9 +270,48 @@ ggsave("")
 
 ##############################################################################
 
-# NAME
+# SEED DIFFERENCE VS WINNING %
 
-ggsave("")
+stats<-data.frame(matrix(ncol=3,nrow=0))
+colnames(stats)<-c("s_diff","wins","looses")
+
+
+for(i in 1:nrow(all_data)){
+    # l_ht<-to_num(all_data[i,]$loser_ht)
+    # w_ht<-to_num(all_data[i,]$winner_ht)
+
+    w_seed<-to_num(all_data[i,]$winner_seed)
+    l_seed<-to_num(all_data[i,]$loser_seed)
+
+    # h_diff<-abs(w_ht-l_ht)
+    s_diff<-abs(w_seed-l_seed)
+
+    if(w_seed>0 & l_seed>0){
+        if(nrow(stats[stats$s_diff==s_diff,])==1){
+            r_f<-stats[stats$s_diff==s_diff,]
+            
+            if(w_seed>l_seed){
+                stats[stats$s_diff==s_diff,]<-c(s_diff,r_f$wins+1,r_f$looses)
+            } else {
+                stats[stats$s_diff==s_diff,]<-c(s_diff,r_f$wins,r_f$looses+1)
+            }
+
+        } else {    
+            if(w_seed>l_seed){
+                stats[nrow(stats)+1,]<-c(s_diff,1,0)
+            } else {
+                stats[nrow(stats)+1,]<-c(s_diff,0,1)
+            }
+        }
+    }
+}
+
+for(i in 1:nrow(stats)){
+    stats[i,]$win_p<-stats[i,]$wins/(stats[i,]$wins+stats[i,]$looses)
+}
+
+
+ggsave("seed_diff_vs_win_perc.png")
 
 
 ##############################################################################
