@@ -59,10 +59,15 @@ for(i in 1:nrow(all_data)){
         wnum_aces<-c(wnum_aces, w_ace)
         ht_diff<-c(ht_diff, w_ht-l_ht)
     }
-
 }
 
 
+l_aces<-c()
+w_aces<-c()
+for(i in 1:nrow(all_data)){
+    l_aces<-c(l_aces, all_data[i,]$l_ace)
+    w_aces<-c(w_aces, all_data[i,]$w_ace)
+}
 
 
 
@@ -203,8 +208,13 @@ ggsave("")
 
 
 
+rank_dif<-c()
+for(i in 1:nrow(all_data)){
+    w_rank<-all_data[i,]$winner_rank_points
+    l_rank<-all_data[i,]$loser_rank_points
 
-
+    rank_dif<-c(rank_dif,w_rank-l_rank)
+}
 
 ##############################################################################
 
