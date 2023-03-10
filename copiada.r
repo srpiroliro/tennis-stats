@@ -101,7 +101,7 @@ df_subset_winner <- df_subset %>%
   left_join(df_win_experience_last3 %>% select(winner_id,tourney_id,last_result)) %>%
   select(surface,round,tourney_level,age_diff,ht_diff,rank_diff,experience,last_result) %>%
   drop_na() %>%
-  mutate(win_lose = -1) 
+  mutate(win_lose = 1) 
 
 print("OK 7")
 
@@ -110,7 +110,7 @@ df_subset_loser <- df_subset %>%
   left_join(df_lost_experience_last3 %>% select(loser_id,tourney_id,last_result)) %>%
   select(surface,round,tourney_level,age_diff,ht_diff,rank_diff,experience,last_result) %>%
   drop_na() %>%
-  mutate(win_lose = 1) 
+  mutate(win_lose = -1) 
 
 print("OK 8")
 
@@ -130,15 +130,15 @@ print("OK 9")
 
 # SEPARETING DATA
 set.seed(as.numeric(Sys.time(), units = "secs"))
-train_indices <- sample(nrow(df_model), size = round(0.9 * nrow(df_model)), replace = FALSE)
-train <- df_model[train_indices, ]
-test <- df_model[-train_indices, ]
+train_indices<-sample(nrow(df_model), size = round(0.9 * nrow(df_model)), replace = FALSE)
+train<-df_model[train_indices, ]
+test<-df_model[-train_indices, ]
 
 
 
 # ORIGINAL
-lm = lm(win_lose~rank_diff+experience+last_result+surface+age_diff+ht_diff+tourney_level, data = train)
-pp<-predict(lm, test)
+# lm = lm(win_lose~rank_diff+experience+last_result+surface+age_diff+ht_diff+tourney_level, data = train)
+# pp<-predict(lm, test)
 
 
 # OUR DATA
@@ -146,11 +146,18 @@ pp<-predict(lm, test)
 # pp<-predict(lm, test)
 
 
+# LDA
+# library(MASS)
+
+# ldaa<-lda(win_lose~age_diff+ht_diff+rank_diff+experience, data=train)
+
 
 # TABLE
-actuals_preds <- data.frame(cbind(actuals=test$win_lose, predicteds=pp))
-cor(actuals_preds)  # 82.7%
+# actuals_preds <- data.frame(cbind(actuals=test$win_lose, predicteds=pp))
+# cor(actuals_preds)  # 82.7%
 
 
 # min_max_accuracy <- mean(apply(actuals_preds, 1, min) / apply(actuals_preds, 1, max))  
 # mape <- mean(abs((actuals_preds$predicteds - actuals_preds$actuals))/actuals_preds$actuals)  
+
+

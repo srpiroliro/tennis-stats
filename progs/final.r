@@ -82,7 +82,6 @@ names<-c(
     # "last_result",    #0  1
     # "last_2_result",  #0  0
     # "last_3_result"   #1  0
-
 )
 
 ####
